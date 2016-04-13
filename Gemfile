@@ -1,0 +1,15 @@
+source 'https://rubygems.org'
+
+ruby '2.2.3'
+
+gem 'activesupport'
+gem 'bourbon'
+gem 'dotenv'
+gem 'heroku-api'
+gem 'heroku-bouncer'
+gem 'puma'
+gem 'rack-rewrite'
+gem 'rack-ssl-enforcer'
+gem 'sass'
+gem 'sinatra'
+gem 'sinatra-contrib'
