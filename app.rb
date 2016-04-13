@@ -10,6 +10,15 @@ class App < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  helpers do
+    def authenticate!
+      if ENV['RACK_ENV'] != 'development' && request.env["bouncer.email"].empty? then
+        puts "Authentication error"
+        halt 404
+      end
+    end
+  end
+
   configure do
     enable :logging
     Tilt.register "erb.html", Tilt[:erb]
