@@ -1,18 +1,27 @@
 var SignatureForm = React.createClass({
   getInitialState: function () {
-    return {name: '', title: ''}
+    return {name: '', title: '', email: ''}
   },
   handleNameChange: function (e) {
     var value = e.target.value;
     var title = this.state.title
+    var email = this.state.email
     this.setState({name: value})
-    this.enterContent({name: value, title: title});
+    this.enterContent({name: value, title: title, email: email});
   },
   handleTitleChange: function (e) {
     var value = e.target.value;
     var name = this.state.name
+    var email = this.state.email
     this.setState({title: value})
-    this.enterContent({name: name, title: value});
+    this.enterContent({name: name, title: value, email: email});
+  },
+  handleEmailChange: function (e) {
+    var value = e.target.value;
+    var name = this.state.name
+    var title = this.state.title
+    this.setState({email: value})
+    this.enterContent({name: name, title: title, email: value});
   },
   enterContent: function(obj) {
     this.props.contentEntered(obj);
@@ -33,7 +42,7 @@ var SignatureForm = React.createClass({
               />
           </div>
 
-          <div class="form-group">
+          <div className="form-group">
             <label htmlFor="input-title">Title</label>
             <input
               type="text"
@@ -42,6 +51,18 @@ var SignatureForm = React.createClass({
               onChange={this.handleTitleChange}
               className="form-control"
               id="input-title"
+              />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="input-email">Email</label>
+            <input
+              type="text"
+              placeholder="Your Email"
+              value={this.state.email}
+              onChange={this.handleEmailChange}
+              className="form-control"
+              id="input-email"
               />
           </div>
         </form>
@@ -59,6 +80,7 @@ var SignatureOutput = React.createClass({
           <span>{this.props.data.name}</span> |&nbsp;
           <span>{this.props.data.title}</span> <br/>
           <span>Heroku | Salesforce | 650 7th Street | San Francisco | CA 94103</span> <br/>
+          <span><a href={"mailto:" + this.props.data.email}>{this.props.data.email}</a></span> |&nbsp;
         </p>
       </div>
     )
