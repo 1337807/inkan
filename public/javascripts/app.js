@@ -19,20 +19,33 @@ var SignatureForm = React.createClass({
   },
   render: function () {
     return (
-      <form className="signature-form">
-        <input
-          type="text"
-          placeholder="Your name"
-          value={this.state.name}
-          onChange={this.handleNameChange}
-          />
-        <input
-          type="text"
-          placeholder="Your Title"
-          value={this.state.title}
-          onChange={this.handleTitleChange}
-          />
-      </form>
+      <div className="purple-box u-padding-Al">
+        <form>
+          <div className="form-group">
+            <label htmlFor="input-name">Name</label>
+            <input
+              type="text"
+              placeholder="Your name"
+              value={this.state.name}
+              onChange={this.handleNameChange}
+              className="form-control"
+              id="input-name"
+              />
+          </div>
+
+          <div class="form-group">
+            <label htmlFor="input-title">Title</label>
+            <input
+              type="text"
+              placeholder="Your Title"
+              value={this.state.title}
+              onChange={this.handleTitleChange}
+              className="form-control"
+              id="input-title"
+              />
+          </div>
+        </form>
+      </div>
     )
   }
 });
