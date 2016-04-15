@@ -3,3 +3,5 @@
 .sass-cache
 .ruby-gemset
 notes.md
+node_modules
+public/dist
