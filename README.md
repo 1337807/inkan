@@ -1,6 +1,6 @@
 ## Inkan
 
-A simple app to aid in you making your gmail signature
+A simple app to aid in your making your gmail signature
 
 ## Local Installation
 
