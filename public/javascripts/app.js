@@ -1,32 +1,33 @@
-var SignatureForm = React.createClass({
-  getInitialState: function () {
-    return {name: '', title: '', email: ''}
-  },
-  handleNameChange: function (e) {
+class SignatureForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state =  {name: '', title: '', email: ''};
+  }
+  handleNameChange(e) {
     var value = e.target.value;
     var title = this.state.title
     var email = this.state.email
     this.setState({name: value})
     this.enterContent({name: value, title: title, email: email});
-  },
-  handleTitleChange: function (e) {
+  }
+  handleTitleChange(e) {
     var value = e.target.value;
     var name = this.state.name
     var email = this.state.email
     this.setState({title: value})
     this.enterContent({name: name, title: value, email: email});
-  },
-  handleEmailChange: function (e) {
+  }
+  handleEmailChange(e) {
     var value = e.target.value;
     var name = this.state.name
     var title = this.state.title
     this.setState({email: value})
     this.enterContent({name: name, title: title, email: value});
-  },
-  enterContent: function(obj) {
+  }
+  enterContent(obj) {
     this.props.contentEntered(obj);
-  },
-  render: function () {
+  }
+  render() {
     return (
       <div className="purple-box u-padding-Al">
         <form>
@@ -36,7 +37,7 @@ var SignatureForm = React.createClass({
               type="text"
               placeholder="Your name"
               value={this.state.name}
-              onChange={this.handleNameChange}
+              onChange={this.handleNameChange.bind(this)}
               className="form-control"
               id="input-name"
               />
@@ -48,7 +49,7 @@ var SignatureForm = React.createClass({
               type="text"
               placeholder="Your Title"
               value={this.state.title}
-              onChange={this.handleTitleChange}
+              onChange={this.handleTitleChange.bind(this)}
               className="form-control"
               id="input-title"
               />
@@ -60,7 +61,7 @@ var SignatureForm = React.createClass({
               type="text"
               placeholder="Your Email"
               value={this.state.email}
-              onChange={this.handleEmailChange}
+              onChange={this.handleEmailChange.bind(this)}
               className="form-control"
               id="input-email"
               />
@@ -69,10 +70,10 @@ var SignatureForm = React.createClass({
       </div>
     )
   }
-});
+};
 
-var SignatureOutput = React.createClass({
-  render: function () {
+class SignatureOutput extends React.Component {
+  render() {
     return (
       <div className="signature-output">
         <h1>Result</h1>
@@ -85,25 +86,26 @@ var SignatureOutput = React.createClass({
       </div>
     )
   }
-});
+};
 
-var SignatureBox = React.createClass({
-  getInitialState: function () {
-    return {data: {}};
-  },
-  handleContentEnter: function (content) {
+class SignatureBox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {data: {}};
+  }
+  handleContentEnter(content) {
     this.setState({data: content});
-  },
-  render: function() {
+  }
+  render() {
     return (
       <div className="signature-box">
         <h1>Your Details</h1>
-        <SignatureForm contentEntered={this.handleContentEnter} />
+        <SignatureForm contentEntered={this.handleContentEnter.bind(this)} />
         <SignatureOutput data={this.state.data} />
       </div>
     );
   }
-});
+};
 
 ReactDOM.render(
   <SignatureBox />,
