@@ -12,7 +12,7 @@ class App < Sinatra::Base
 
   helpers do
     def authenticate!
-      if ENV['RACK_ENV'] != 'development' && request.env["bouncer.email"].empty? then
+      if ENV['RACK_ENV'] == 'production' && request.env["bouncer.email"].empty?
         puts "Authentication error"
         halt 404
       end
