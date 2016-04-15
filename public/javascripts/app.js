@@ -58,6 +58,7 @@ var SignatureOutput = React.createClass({
         <p>
           <span>{this.props.data.name}</span> |&nbsp;
           <span>{this.props.data.title}</span> <br/>
+          <span>Heroku | Salesforce | 650 7th Street | San Francisco | CA 94103</span> <br/>
         </p>
       </div>
     )
