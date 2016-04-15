@@ -11,7 +11,8 @@
     "url": "git+https://github.com/maxbeizer/inkan.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "UNLICENSED",
+  "private": true,
   "bugs": {
     "url": "https://github.com/maxbeizer/inkan/issues"
   },
