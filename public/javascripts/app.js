@@ -6,14 +6,23 @@ class SignatureBox extends React.Component {
     super(props);
     this.state = {
       name: '',
-      title: ''
+      title: '',
+      email: '',
+      twitter: '',
+      linkedin: '',
+      github: '',
+      facebook: ''
     };
   }
-  handleContentEnter(name, title, email) {
+  handleContentEnter(name, title, email, twitter, linkedin, github, facebook) {
     this.setState({
       name: name,
       title: title,
-      email: email
+      email: email,
+      twitter: twitter,
+      linkedin: linkedin,
+      github: github,
+      facebook: facebook
     });
   }
   render() {
