@@ -57,7 +57,7 @@ export default class SignatureForm extends React.Component {
             <label htmlFor="input-twitter">Twitter</label>
             <input
               type="text"
-              placeholder="Your twitter"
+              placeholder="Your Twitter"
               value={this.props.twitter}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
@@ -70,7 +70,7 @@ export default class SignatureForm extends React.Component {
             <label htmlFor="input-linkedin">Linkedin</label>
             <input
               type="text"
-              placeholder="Your linkedin"
+              placeholder="Your Linkedin"
               value={this.props.linkedin}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
@@ -80,10 +80,10 @@ export default class SignatureForm extends React.Component {
           </div>
 
           <div className="form-group">
-            <label htmlFor="input-github">Github</label>
+            <label htmlFor="input-github">GitHub</label>
             <input
               type="text"
-              placeholder="Your github"
+              placeholder="Your GitHub"
               value={this.props.github}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
@@ -96,7 +96,7 @@ export default class SignatureForm extends React.Component {
             <label htmlFor="input-facebook">Facebook</label>
             <input
               type="text"
-              placeholder="Your facebook"
+              placeholder="Your Facebook"
               value={this.props.facebook}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
