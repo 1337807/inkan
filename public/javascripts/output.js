@@ -1,4 +1,13 @@
 export default class SignatureOutput extends React.Component {
+  buildSocialLink(site, handle) {
+    const socialLinkMap = {
+      "twitter" : `https://twitter.com/${handle}`,
+      "linkedin" : `https://www.linkedin.com/in/${handle}`,
+      "facebook" : `https://www.facebook.com/${handle}`,
+      "github" : `https://github.com/${handle}`
+    }
+    return socialLinkMap[site];
+  }
   render() {
     const data = this.props.data;
     const { name, title, email, twitter, linkedin, github, facebook } = data;
@@ -26,7 +35,7 @@ export default class SignatureOutput extends React.Component {
           <span>Heroku | Salesforce | 650 7th Street | San Francisco | CA 94103</span> <br/>
           <span style={emailStyles}><a href={"mailto:" + email}>{email || 'email'}</a></span> |&nbsp;
           {Object.keys(social).map((site, index) => {
-            return <span key={site + index}>{social[site]}&nbsp;</span>;
+            return <span key={site + index}><a href={this.buildSocialLink(site, social[site])}>{site}</a>&nbsp;</span>;
           })}
         </p>
       </div>
