@@ -41,10 +41,9 @@ export default class SignatureRaw extends React.Component {
           <span>&lt;span&gt;&lt;a href=&quot;mailto{email}:&quot;&gt;{email}&lt;/a&gt;&lt;/span&gt; |&nbsp;</span>
 
           {Object.keys(social).map((site, index) => {
-            const key = site + index;
+            const key  = site + index;
             const href = this.buildSocialLink(site, social[site]);
-            let str = `<span key=${key}><a href=${href}>${site}</a>&nbsp;</span>`;
-            return this.encode(str);
+            return <span key={key}>&lt;span&gt;&lt;a href={href}&gt;{site}&lt;/a&gt;&nbsp;&lt;/span&gt;</span>;
           })}
         </p>
       </div>
