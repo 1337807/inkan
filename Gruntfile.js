@@ -17,9 +17,19 @@ module.exports = function (grunt) {
         }
       }
     },
+    copy: {
+      dist: {
+        files: [{
+          expand: true,
+          src: ['public/images/*'],
+          dest: 'public/dist/',
+          filter: 'isFile'
+        }]
+      }
+    },
     watch: {
       scripts: {
-        files: ["./public/javascripts/*.js"],
+        files: ["./public/javascripts/*.js", "./public/stylesheets/**/*.scss"],
         tasks: ["browserify", "reload"]
       }
     }
@@ -27,9 +37,10 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks("grunt-browserify");
   grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask("default", ["watch"]);
-  grunt.registerTask("build", ["browserify"]);
+  grunt.registerTask("default", ["copy", "watch"]);
+  grunt.registerTask("build", ["copy", "browserify"]);
   grunt.registerTask("reload", "reload Chrome on OS X",
   function() {
     require("child_process").exec("osascript " +

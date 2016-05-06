@@ -1,3 +1,5 @@
+import Clipboard from 'clipboard'
+
 export default class SignatureOutput extends React.Component {
   buildSocialLink(site, handle) {
     const socialLinkMap = {
@@ -28,8 +30,11 @@ export default class SignatureOutput extends React.Component {
 
     return (
       <div>
-        <h1>Result</h1>
-        <p>
+        <h2 className="result-header">Result</h2>
+        <button className="btn btn-default btn-copy" data-clipboard-target="#foo">
+          <img className="clippy" src="dist/public/images/clippy.svg" alt="Copy to clipboard"></img>
+        </button>
+        <p id="foo">
           <span style={nameStyles}>{name || 'name'}</span> |&nbsp;
           <span>{title || 'title'}</span> <br/>
           <span>Heroku | Salesforce | 650 7th Street | San Francisco | CA 94103</span> <br/>
