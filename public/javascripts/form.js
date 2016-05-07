@@ -1,24 +1,30 @@
+import debounce from './util';
+
 export default class SignatureForm extends React.Component {
-  handleValueChange(e) {
-    // propogate state change
+  constructor() {
+    super();
+    this.sendRequest = debounce(this.sendRequest, 1000);
+  }
+  dispacthState(refs) {
     this.props.contentEntered(
-      this.refs.name.value,
-      this.refs.title.value,
-      this.refs.email.value,
-      this.refs.twitter.value,
-      this.refs.linkedin.value,
-      this.refs.github.value,
-      this.refs.facebook.value
-    );
-    // POST to server
+      refs.name.value,
+      refs.title.value,
+      refs.email.value,
+      refs.twitter.value,
+      refs.linkedin.value,
+      refs.github.value,
+      refs.facebook.value
+    )
+  }
+  sendRequest(refs) {
     const jsonData =  {
-      'name' : this.refs.name.value,
-      'title' : this.refs.title.value,
-      'email' : this.refs.email.value,
-      'twitter' : this.refs.twitter.value,
-      'linkedin' :this.refs.linkedin.value,
-      'github' : this.refs.github.value,
-      'facebook' : this.refs.facebook.value
+      'name' : refs.name.value,
+      'title' : refs.title.value,
+      'email' : refs.email.value,
+      'twitter' : refs.twitter.value,
+      'linkedin' : refs.linkedin.value,
+      'github' : refs.github.value,
+      'facebook' : refs.facebook.value
     }
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "/submit.json");
@@ -29,6 +35,10 @@ export default class SignatureForm extends React.Component {
       }
     }
     xhr.send(JSON.stringify(jsonData));
+  }
+  handleValueChange(_e) {
+    this.dispacthState(this.refs);
+    this.sendRequest(this.refs);
   }
   render() {
     return (
