@@ -2,6 +2,8 @@ require 'bundler'
 require 'sinatra'
 require 'sinatra/activerecord'
 require './config/environments'
+require 'json'
+require './models/user'
 
 Bundler.require
 
@@ -28,5 +30,22 @@ class App < Sinatra::Base
 
   get "/" do
     erb :index
+  end
+
+  post '/submit.json' do
+    content_type :json
+    @user = User.where(email: params[:email]).first_or_initialize do |user|
+      user.name     = params[:name]
+      user.title    = params[:title]
+      user.github   = params[:github]
+      user.twitter  = params[:twitter]
+      user.linkedin = params[:linkedin]
+      user.facebook = params[:facebook]
+    end
+    if @user.save
+      @user.to_json
+    else
+      halt 500
+    end
   end
 end

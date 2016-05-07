@@ -20,3 +20,10 @@ $ npm i
 $ heroku local
 $ gulp #in a seperate terminal
 ```
+
+### Console
+```term
+$ irb
+require './app'
+User.all #etc
+```
