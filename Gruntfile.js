@@ -29,7 +29,11 @@ module.exports = function (grunt) {
     },
     watch: {
       scripts: {
-        files: ["./public/javascripts/*.js", "./public/stylesheets/**/*.scss"],
+        files: [
+          "./public/javascripts/*.js",
+          "./public/stylesheets/**/*.scss",
+          "./views/**/*.erb"
+        ],
         tasks: ["browserify", "reload"]
       }
     }

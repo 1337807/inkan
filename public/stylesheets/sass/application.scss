@@ -73,17 +73,6 @@ iframe {
   margin-top: -20px;
 }
 
-.bg-space {
-  background: url(/images/bg-space.png) fixed;
-  padding-top: 180px;
-  padding-bottom: 80px;
-
-  h1 {
-    color: #fff;
-    font-size: 2.5em;
-  }
-}
-
 .clippy {
   width: 13px;
 }
@@ -120,10 +109,25 @@ iframe {
 }
 
 .btn-copy {
-  margin-left: 1em;
   margin-bottom: 10px;
+  width: 12em;
 }
 
-.result-header {
+footer {
+  background-color: $gray-lighter;
+  height: 4em;
+  padding: 1em;
+  margin-top: 4em;
+
+  section {
+    line-height: 2em;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+}
+
+.ilb {
   display: inline-block;
 }

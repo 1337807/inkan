@@ -1,7 +1,7 @@
 import SignatureOutput from './output.js';
 import SignatureForm   from './form.js';
 
-class SignatureBox extends React.Component {
+class InkanContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,15 +28,20 @@ class SignatureBox extends React.Component {
   render() {
     return (
       <div className="signature-box">
-        <h1>Your Details</h1>
-        <SignatureForm contentEntered={this.handleContentEnter.bind(this)} />
-        <SignatureOutput data={this.state} />
+        <section className="col-md-6">
+          <h3>Your Details</h3>
+          <SignatureForm contentEntered={this.handleContentEnter.bind(this)} />
+        </section>
+        <section className="col-md-6">
+          <h3>Result</h3>
+          <SignatureOutput data={this.state} />
+        </section>
       </div>
     );
   }
 };
 
 ReactDOM.render(
-  <SignatureBox />,
+  <InkanContainer />,
   document.getElementById('content')
 );

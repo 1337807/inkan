@@ -45,10 +45,6 @@ export default class SignatureOutput extends React.Component {
 
     return (
       <div>
-        <h2 className="result-header">Result</h2>
-        <button onClick={this.handleCopy} className="btn btn-default btn-copy">
-          <img className="clippy" src="dist/public/images/clippy.svg" alt="Copy to clipboard"></img>
-        </button>
         <p id="output-html">
           <span style={nameStyles}>{name || 'name'}</span> |&nbsp;
           <span>{title || 'title'}</span> <br/>
@@ -58,6 +54,9 @@ export default class SignatureOutput extends React.Component {
             return <span key={site + index}><a href={this.buildSocialLink(site, social[site])}>{site}</a>&nbsp;</span>;
           })}
         </p>
+        <button onClick={this.handleCopy} className="btn btn-default btn-copy">
+          <img className="clippy" src="dist/public/images/clippy.svg" alt="Copy to clipboard"></img>
+        </button>
       </div>
     )
   }
