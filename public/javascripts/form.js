@@ -1,5 +1,6 @@
 export default class SignatureForm extends React.Component {
   handleValueChange(e) {
+    // propogate state change
     this.props.contentEntered(
       this.refs.name.value,
       this.refs.title.value,
@@ -9,6 +10,25 @@ export default class SignatureForm extends React.Component {
       this.refs.github.value,
       this.refs.facebook.value
     );
+    // POST to server
+    const jsonData =  {
+      'name' : this.refs.name.value,
+      'title' : this.refs.title.value,
+      'email' : this.refs.email.value,
+      'twitter' : this.refs.twitter.value,
+      'linkedin' :this.refs.linkedin.value,
+      'github' : this.refs.github.value,
+      'facebook' : this.refs.facebook.value
+    }
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/submit.json");
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        //log('written to db', xhr.responseText);
+      }
+    }
+    xhr.send(JSON.stringify(jsonData));
   }
   render() {
     return (

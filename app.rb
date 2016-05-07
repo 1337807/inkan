@@ -34,7 +34,8 @@ class App < Sinatra::Base
 
   post '/submit.json' do
     content_type :json
-    @user = User.where(email: params[:email]).first_or_initialize do |user|
+    params = JSON.parse(request.body.read, symbolize_names: true)
+    @user = User.where(email: request.env.fetch('bouncer.email', 'foo@bar.com')).first_or_initialize do |user|
       user.name     = params[:name]
       user.title    = params[:title]
       user.github   = params[:github]
@@ -42,7 +43,7 @@ class App < Sinatra::Base
       user.linkedin = params[:linkedin]
       user.facebook = params[:facebook]
     end
-    if @user.save
+    if @user.update(User.prepare_params(params))
       @user.to_json
     else
       halt 500

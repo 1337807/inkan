@@ -6,7 +6,7 @@ require 'sass/plugin/rack'
 
 use Sass::Plugin::Rack
 
-if ENV['RACK_ENV'] == 'production'
+if ENV['FORCE_SSL']
   use Rack::SslEnforcer
   set :session_secret, ENV['HEROKU_BOUNCER_SECRET']
 end
