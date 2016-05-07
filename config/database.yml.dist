@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: inkan-development
+  username:
+  password:
+  host: localhost

@@ -1,14 +1,11 @@
 require 'bundler'
-require 'active_support/all'
+require 'sinatra'
+require 'sinatra/activerecord'
+require './config/environments'
 
 Bundler.require
 
 class App < Sinatra::Base
-
-  configure :development do
-    require "sinatra/reloader"
-    register Sinatra::Reloader
-  end
 
   helpers do
     def authenticate!
