@@ -1,6 +1,5 @@
 import SignatureOutput from './output.js';
 import SignatureForm   from './form.js';
-import SignatureRaw    from './raw.js';
 
 class SignatureBox extends React.Component {
   constructor(props) {
@@ -32,7 +31,6 @@ class SignatureBox extends React.Component {
         <h1>Your Details</h1>
         <SignatureForm contentEntered={this.handleContentEnter.bind(this)} />
         <SignatureOutput data={this.state} />
-        <SignatureRaw data={this.state} />
       </div>
     );
   }
