@@ -49,4 +49,9 @@ class App < Sinatra::Base
       halt 500
     end
   end
+
+  get '/user.json' do
+    content_type :json
+    User.find_by(email: request.env.fetch('bouncer.email', 'foo@bar.com')).to_json
+  end
 end

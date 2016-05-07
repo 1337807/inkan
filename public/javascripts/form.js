@@ -1,5 +1,5 @@
 import debounce from './util';
-import postData from './api';
+import { postData } from './api';
 
 export default class SignatureForm extends React.Component {
   constructor() {
@@ -34,6 +34,8 @@ export default class SignatureForm extends React.Component {
     this.sendRequest(this.refs);
   }
   render() {
+    const data = this.props.data;
+    const { name, title, email, twitter, linkedin, github, facebook } = data;
     return (
       <div className="purple-box u-padding-Al">
         <form>
@@ -42,7 +44,7 @@ export default class SignatureForm extends React.Component {
             <input
               type="text"
               placeholder="Your name"
-              value={this.props.name}
+              value={name}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
               id="input-name"
@@ -55,7 +57,7 @@ export default class SignatureForm extends React.Component {
             <input
               type="text"
               placeholder="Your title"
-              value={this.props.title}
+              value={title}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
               id="input-title"
@@ -68,11 +70,12 @@ export default class SignatureForm extends React.Component {
             <input
               type="text"
               placeholder="Your email"
-              value={this.props.email}
+              value={email}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
               id="input-email"
               ref="email"
+              disabled={true}
             />
           </div>
 
@@ -81,7 +84,7 @@ export default class SignatureForm extends React.Component {
             <input
               type="text"
               placeholder="Your Twitter"
-              value={this.props.twitter}
+              value={twitter}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
               id="input-twitter"
@@ -94,7 +97,7 @@ export default class SignatureForm extends React.Component {
             <input
               type="text"
               placeholder="Your Linkedin"
-              value={this.props.linkedin}
+              value={linkedin}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
               id="input-linkedin"
@@ -107,7 +110,7 @@ export default class SignatureForm extends React.Component {
             <input
               type="text"
               placeholder="Your GitHub"
-              value={this.props.github}
+              value={github}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
               id="input-github"
@@ -120,7 +123,7 @@ export default class SignatureForm extends React.Component {
             <input
               type="text"
               placeholder="Your Facebook"
-              value={this.props.facebook}
+              value={facebook}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
               id="input-facebook"

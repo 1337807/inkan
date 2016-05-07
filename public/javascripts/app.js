@@ -1,5 +1,6 @@
-import SignatureOutput from './output.js';
-import SignatureForm   from './form.js';
+import SignatureOutput from './output';
+import SignatureForm   from './form';
+import { getData }     from './api'
 
 class InkanContainer extends React.Component {
   constructor(props) {
@@ -13,6 +14,11 @@ class InkanContainer extends React.Component {
       github: '',
       facebook: ''
     };
+  }
+  componentDidMount() {
+    getData((data) => {
+      this.setState(data);
+    });
   }
   handleContentEnter(name, title, email, twitter, linkedin, github, facebook) {
     this.setState({
@@ -30,7 +36,7 @@ class InkanContainer extends React.Component {
       <div className="signature-box">
         <section className="col-md-6">
           <h3>Your Details</h3>
-          <SignatureForm contentEntered={this.handleContentEnter.bind(this)} />
+          <SignatureForm data={this.state} contentEntered={this.handleContentEnter.bind(this)} />
         </section>
         <section className="col-md-6">
           <h3>Result</h3>
