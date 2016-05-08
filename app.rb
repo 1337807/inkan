@@ -29,20 +29,14 @@ class App < Sinatra::Base
   end
 
   get "/" do
+    User.where(email: request.env.fetch('bouncer.email', 'foo@bar.com')).first_or_create
     erb :index
   end
 
   post '/submit.json' do
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
-    @user = User.where(email: request.env.fetch('bouncer.email', 'foo@bar.com')).first_or_initialize do |user|
-      user.name     = params[:name]
-      user.title    = params[:title]
-      user.github   = params[:github]
-      user.twitter  = params[:twitter]
-      user.linkedin = params[:linkedin]
-      user.facebook = params[:facebook]
-    end
+    @user = User.find_by!(email: request.env.fetch('bouncer.email', 'foo@bar.com'))
     if @user.update(User.prepare_params(params))
       @user.to_json
     else

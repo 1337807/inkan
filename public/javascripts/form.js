@@ -44,7 +44,7 @@ export default class SignatureForm extends React.Component {
             <input
               type="text"
               placeholder="Your name"
-              value={name}
+              value={name || ''}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
               id="input-name"
@@ -57,7 +57,7 @@ export default class SignatureForm extends React.Component {
             <input
               type="text"
               placeholder="Your title"
-              value={title}
+              value={title || ''}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
               id="input-title"
@@ -84,7 +84,7 @@ export default class SignatureForm extends React.Component {
             <input
               type="text"
               placeholder="Your Twitter"
-              value={twitter}
+              value={twitter || ''}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
               id="input-twitter"
@@ -97,7 +97,7 @@ export default class SignatureForm extends React.Component {
             <input
               type="text"
               placeholder="Your Linkedin"
-              value={linkedin}
+              value={linkedin || ''}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
               id="input-linkedin"
@@ -110,7 +110,7 @@ export default class SignatureForm extends React.Component {
             <input
               type="text"
               placeholder="Your GitHub"
-              value={github}
+              value={github || ''}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
               id="input-github"
@@ -123,7 +123,7 @@ export default class SignatureForm extends React.Component {
             <input
               type="text"
               placeholder="Your Facebook"
-              value={facebook}
+              value={facebook || ''}
               onChange={this.handleValueChange.bind(this)}
               className="form-control"
               id="input-facebook"

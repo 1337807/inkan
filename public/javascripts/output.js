@@ -37,7 +37,7 @@ export default class SignatureOutput extends React.Component {
       color: theColorPurple
     };
     let social = Object.keys(data).reduce((acc, current) => {
-      if (['twitter', 'linkedin', 'github', 'facebook'].indexOf(current) > -1 && this.props.data[current].length > 0) {
+      if (['twitter', 'linkedin', 'github', 'facebook'].indexOf(current) > -1 && this.props.data[current] && this.props.data[current].length > 0) {
         acc[current] = data[current];
       }
       return acc;
