@@ -18,7 +18,7 @@ $ rake db:create db:migrate
 $ bundle install
 $ npm i
 $ heroku local
-$ gulp #in a seperate terminal
+$ grunt #in a separate terminal
 ```
 
 ### Console
