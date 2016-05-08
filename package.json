@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "A simple app to aid in your making your gmail signature",
   "main": "index.js",
+  "engines": {
+    "node": "5.10.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "echo postinstall time; ./node_modules/grunt-cli/bin/grunt build"
   },
   "repository": {
     "type": "git",
@@ -17,14 +20,13 @@
     "url": "https://github.com/maxbeizer/inkan/issues"
   },
   "homepage": "https://github.com/maxbeizer/inkan#readme",
-  "devDependencies": {
+  "dependencies": {
     "babelify": "^6.1.0",
     "grunt": "^0.4.5",
     "grunt-browserify": "^3.8.0",
+    "grunt-cli": "^1.2.0",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-watch": "^0.6.1"
-  },
-  "dependencies": {
+    "grunt-contrib-watch": "^0.6.1",
     "react": "^15.0.2"
   }
 }
