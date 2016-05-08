@@ -53,6 +53,12 @@ iframe {
 .page-header {
   margin-top: -20px; }
 
+.output.output-name {
+  color: #79589F;
+  font-weight: bolder; }
+.output.output-name {
+  color: #79589F; }
+
 .clippy {
   width: 13px; }
 

@@ -73,6 +73,17 @@ iframe {
   margin-top: -20px;
 }
 
+.output {
+  &.output-name {
+    color: $purple;
+    font-weight: bolder;
+  }
+
+  &.output-name {
+    color: $purple;
+  }
+}
+
 .clippy {
   width: 13px;
 }
