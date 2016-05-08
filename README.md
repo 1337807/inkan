@@ -10,6 +10,7 @@ A simple app to aid in your making your gmail signature
 * Heroku Toolbelt
 * postgres
 * NPM
+* Grunt `npm install -g grunt`
 
 ```term
 $ cp .env.dist .env #and fill in ENV as needed
