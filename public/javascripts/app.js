@@ -1,5 +1,6 @@
 import SignatureOutput from './output';
 import SignatureForm   from './form';
+import Instructions    from './instructions';
 import { getData }     from './api'
 
 class InkanContainer extends React.Component {
@@ -41,6 +42,8 @@ class InkanContainer extends React.Component {
         <section className="col-md-6">
           <h3>Result</h3>
           <SignatureOutput data={this.state} />
+          <h3>Instructions</h3>
+          <Instructions />
         </section>
       </div>
     );
